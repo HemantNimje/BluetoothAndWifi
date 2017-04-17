@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Bluetooth And Wifi</string>
+    <string name="connect_wifi">Connect Wi-Fi</string>
+    <string name="connect_bluetooth">Connect BT</string>
+    <string name="text_message">Text Message</string>
+    <string name="text_photo">Photo</string>
+    <string name="text_voice_message">Voice Message</string>
+    <string name="send">Send</string>
+    <string name="btn_attach">Attach</string>
+    <string name="record">Record</string>
+    <string name="play">Play</string>
+    <string name="image_description">Photo from the gallery</string>
+    <string name="visualizer_hint">Visualizer for the music play</string>
+    <string name="file_name_hint">Name of the recorded File</string>
+    <string name="message_hint">Type message here</string>
+    <string name="status_hint">Connected/Disconnected</string>
 </resources>

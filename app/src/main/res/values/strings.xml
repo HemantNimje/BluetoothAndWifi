@@ -14,4 +14,7 @@
     <string name="file_name_hint">Name of the recorded File</string>
     <string name="message_hint">Type message here</string>
     <string name="status_hint">Connected/Disconnected</string>
+    <string name="stop_recording">Stop Recording</string>
+    <string name="start_recording">Start Recording</string>
+    <string name="stop">Stop</string>
 </resources>

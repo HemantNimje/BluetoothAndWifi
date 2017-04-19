@@ -1,5 +1,6 @@
 package edu.csulb.android.bluetoothandwifi;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -86,19 +87,19 @@ public class PhotoActivity extends AppCompatActivity {
     * */
     public void permissionCheck() {
         if (ContextCompat.checkSelfPermission(getApplicationContext(),
-                android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
 
             // Should we show explanation
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
 
                 // Add your explanation for the user here.
                 Toast.makeText(this, "You have declined the permissions. Please allow them first to proceed.", Toast.LENGTH_SHORT).show();
             } else {
                 // No explanation needed, we can request the permission
                 ActivityCompat.requestPermissions(this, new String[]
-                                {android.Manifest.permission.READ_EXTERNAL_STORAGE},
+                                {Manifest.permission.READ_EXTERNAL_STORAGE},
                         MY_PERMISSION_REQUEST_READ_EXTERNAL_STORAGE);
             }
         } else {

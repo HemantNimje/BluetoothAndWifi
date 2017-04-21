@@ -17,4 +17,9 @@
     <string name="stop_recording">Stop Recording</string>
     <string name="start_recording">Start Recording</string>
     <string name="stop">Stop</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Devices</string>
+    <string name="button_scan">Scan Devices</string>
+    <string name="select_device">Select a device</string>
+    <string name="none_found">No devices found</string>
 </resources>

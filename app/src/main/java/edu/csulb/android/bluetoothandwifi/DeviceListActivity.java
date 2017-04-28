@@ -11,17 +11,22 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+
+import org.w3c.dom.Text;
 
 import java.util.Set;
 
-public class DeviceListActivity extends AppCompatActivity {
+public class DeviceListActivity extends Activity {
 
     private BluetoothAdapter mBtAdapter;
     public static String EXTRA_DEVICE_ADDRESS = "device_address";
-    private ArrayAdapter<String> pairedDeviceArrayAdapter;
     private ArrayAdapter<String> mNewDeviceArrayAdapter;
     int MY_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 1;
 
@@ -43,6 +48,7 @@ public class DeviceListActivity extends AppCompatActivity {
 
         ListView newDeviceListView = (ListView) findViewById(R.id.new_devices);
         newDeviceListView.setAdapter(mNewDeviceArrayAdapter);
+        newDeviceListView.setOnItemClickListener(mDeviceClickListener);
 
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         this.registerReceiver(mReceiver, filter);
@@ -97,6 +103,30 @@ public class DeviceListActivity extends AppCompatActivity {
                     mNewDeviceArrayAdapter.add(noDevices);
                 }
             }
+        }
+    };
+
+    /*
+    * Handle the on-click listener for all devices in the ListView
+    * */
+
+    private AdapterView.OnItemClickListener mDeviceClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            // Cancel the discovery before we reconnect
+            mBtAdapter.cancelDiscovery();
+
+            // Get the MAC address of the device
+            String info = ((TextView)view).getText().toString();
+            String address = info.substring(info.length() - 17);
+
+            // Create result intent to include the mac address
+            Intent intent = new Intent();
+            intent.putExtra(EXTRA_DEVICE_ADDRESS,address);
+
+            // Set the result and finish this activity
+            setResult(Activity.RESULT_OK,intent);
+            finish();
         }
     };
 

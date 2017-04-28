@@ -25,10 +25,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TextActivity" />
-        <activity android:name=".PhotoActivity" />
-        <activity android:name=".VoiceActivity" />
-        <activity android:name=".DeviceListActivity" />
+        <activity android:name=".DeviceListActivity"
+            android:label="Select a device to connect"
+            android:theme="@android:style/Theme.Holo.Dialog"/>
     </application>
 
 </manifest>
